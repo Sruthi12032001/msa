@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../user';
+import { Login, User } from '../user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../environment/environment';
 
@@ -12,6 +12,10 @@ export class MsaService {
     
   }
   create(user: User) {
-    this.http.post(`${environment.baseUrl}signUp`, user);
+    return this.http.post(`${environment.baseUrl}signUp`, user);
+  }
+
+  login(user: Login) {
+    return this.http.post(`${environment.baseUrl}login`, user);
   }
 }

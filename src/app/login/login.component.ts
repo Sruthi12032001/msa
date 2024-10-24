@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/rou
 import { Login } from '../user';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MsaService } from '../service/msa.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
   mail = '';
   pwd = '';
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private service: MsaService) { }
 
   ngOnInit(): void {
   }
@@ -37,15 +38,15 @@ export class LoginComponent implements OnInit {
       password: this.pwd
     } 
     if(this.validation(loginObj)) {
-      // if(this.service.login(loginObj)) {
+      if(this.service.login(loginObj)) {
         this.login = 'success';
         setTimeout(() => {
           this.route.navigate(['home']);
         }, 2000);
-      // } else {
-      //   this.login = 'failed';
-      //   this.error = 'Provide valid credentials';
-      // }
+      } else {
+        this.login = 'failed';
+        this.error = 'Provide valid credentials';
+      }
           
     }
   }
