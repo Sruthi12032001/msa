@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { User } from '../user';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -74,11 +74,11 @@ export class SignUpComponent implements OnInit {
     }
 
     if(this.validation(user)) {
-        this.service.create(user);
-        this.signedIn = 'signed';
-        setTimeout(() => {
-          this.router.navigate(['home']);
-        }, 2000);
+        // this.service.create(user);
+        // this.signedIn = 'signed';
+        // setTimeout(() => {
+        //   this.router.navigate(['home']);
+        // }, 2000);
     }
    
   }
