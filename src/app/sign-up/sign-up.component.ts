@@ -74,11 +74,11 @@ export class SignUpComponent implements OnInit {
     }
 
     if(this.validation(user)) {
-        // this.service.create(user);
-        // this.signedIn = 'signed';
-        // setTimeout(() => {
-        //   this.router.navigate(['home']);
-        // }, 2000);
+        this.service.create(user);
+        this.signedIn = 'signed';
+        setTimeout(() => {
+          this.router.navigate(['home']);
+        }, 2000);
     }
    
   }
